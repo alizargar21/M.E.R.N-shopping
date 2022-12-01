@@ -7,7 +7,7 @@ import productsRouter from "./routes/products.js"
 import cors from "cors";
 
 dotenv.config();
-// const path = require("path")
+const path = require("path")
 const app = express();
 
 app.use(express.json()); 
@@ -32,10 +32,10 @@ app.use(cors());
 app.use("/api/products" , productsRouter)
 app.use("/api/user", userRouter);
 app.use("/api/order", orderRouter);
-// app.use(express.static(path.join(__dirname , "/client")));
-// app.get("*" , (req , res ) => {
-//   res.sendFile(path.join(__dirname , "/client/build" , "index.html"))
-// })
+app.use(express.static(path.join(__dirname , "/client")));
+app.get("*" , (req , res ) => {
+  res.sendFile(path.join(__dirname , "/client/build" , "index.html"))
+})
 // PORT
 
 // if(process.env.NODE_ENV === "production"){
