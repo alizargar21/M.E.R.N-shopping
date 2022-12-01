@@ -7,7 +7,7 @@ import productsRouter from "./routes/products.js"
 import cors from "cors";
 
 dotenv.config();
-const path = require("path")
+// const path = require("path")
 const app = express();
 
 app.use(express.json()); 
@@ -38,12 +38,12 @@ app.use("/api/order", orderRouter);
 // })
 // PORT
 
-if(process.env.NODE_ENV === "production"){
-  app.use(express.static("client/build"));
-  app.get("*" , (res ,req) => {
-    res.sendFile(path.resolve(__dirname, "client" , "build" , "index.html"))
-  })
-}
+// if(process.env.NODE_ENV === "production"){
+//   app.use(express.static("client/build"));
+//   app.get("*" , (res ,req) => {
+//     res.sendFile(path.resolve(__dirname, "client" , "build" , "index.html"))
+//   })
+// }
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`listening on port ${port}`));
