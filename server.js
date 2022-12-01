@@ -5,9 +5,9 @@ import userRouter from "./routes/user.js";
 import orderRouter from "./routes/order.js";
 import productsRouter from "./routes/products.js"
 import cors from "cors";
-
+import path from "path"
 dotenv.config();
-const path = require("path")
+
 const app = express();
 
 app.use(express.json()); 
