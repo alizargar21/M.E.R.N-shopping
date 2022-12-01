@@ -1,7 +1,7 @@
 {
   "name": "shopping",
   "version": "0.1.0",
-  "author": "Ali Zargar",  "proxy" : "https://onlineshop21.herokuapp.com/" ,
+  "author": "Ali Zargar",  
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
