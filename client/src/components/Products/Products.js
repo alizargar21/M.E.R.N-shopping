@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavoriteList } from "../../features/FavoriteSlice/FavoriteSlice";
+import { Suspense } from "react";
+
+import Spinner from "../../common/Spinner/Spinner";
 const Products = ({ data }) => {
   const {favoriteList} = useSelector(state => state.favorite)
   const dispatch = useDispatch()
@@ -51,13 +54,15 @@ const Products = ({ data }) => {
                 className="flex justify-center relative items-center "
                 to={`/products/${item._id}`}
               > 
-                <div className="absolute left-1 md:-left-2 dark:text-gray-400 text-gray-700 -rotate-90 text-xs md:text-xl italic">
+            <Suspense fallback={<Spinner ></Spinner>}>
+            <div className="absolute left-1 md:-left-2 dark:text-gray-400 text-gray-700 -rotate-90 text-xs md:text-xl italic">
                     {item.brand}
                   </div>
                 <img
                   src={item.image}
                   className="w-[70%] pt-4 hover:scale-105 transition-transform duration-300 "
                 ></img>
+            </Suspense>
               </Link>
               <div className="center flex-col">
                 <h4 className="text-xl md:text-2xl text-center ">{item.name}</h4>
