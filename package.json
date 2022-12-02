@@ -5,7 +5,7 @@
   "description": "Backend-onlineShop",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js  && cd client && npm start ",
+    "start": "node server.js ",
     "dev": "nodemon server.js"
   },
   "author": "Ali Zargar",

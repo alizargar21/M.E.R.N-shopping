@@ -5,7 +5,7 @@ import userRouter from "./routes/user.js";
 import orderRouter from "./routes/order.js";
 import productsRouter from "./routes/products.js"
 import cors from "cors";
-// import path, { dirname } from "path"
+import path, { dirname } from "path"
 dotenv.config();
 
 const app = express();
@@ -38,12 +38,12 @@ app.use("/api/order", orderRouter);
 // })
 // PORT
 
-// if(process.env.NODE_ENV === "development"){
-//   app.use(express.static("client/build"));
-//   app.get("*" , (res ,req) => {
-//     res.sendFile(path.resolve(__dirname, "client" , "build" , "index.html"))
-//   })
-// }
+if(process.env.NODE_ENV === "development"){
+  app.use(express.static("client/build"));
+  app.get("*" , (res ,req) => {
+    res.sendFile(path.resolve(__dirname, "client" , "build" , "index.html"))
+  })
+}
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`listening on port ${port}`));
