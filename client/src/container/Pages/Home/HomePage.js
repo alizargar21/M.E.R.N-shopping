@@ -20,7 +20,7 @@ const HomePage = () => {
     <Layout>
       <Landing />
     
-     {loading ? <Spinner /> :error  ? <p className="center text-center">{error.message}</p> :<SpecialOffer data={products} loading={loading} />}
+     <SpecialOffer loading={loading} data={products}/> 
       <Background />
       {loading ? <Spinner /> : <OfferBox products={products} loading={loading}/>}
       <Possibilities />

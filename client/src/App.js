@@ -9,7 +9,7 @@ import Blogs from "./container/Pages/Blogs/Blogs";
 import SignUp from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import CheckOut from "./container/Pages/CheckOutPage/CheckOut";
-import ThemeProvider from "./Provider/ThemeProvider";
+import ThemeProvider, { useTheme } from "./Provider/ThemeProvider";
 import Favorite from "./container/Pages/FavoritePage/Favorite";
 import AllOfferProducts from "./container/Pages/OfferPage/OfferPage";
 import { Provider } from "react-redux";
@@ -20,9 +20,10 @@ import { setInitialValue } from "./features/FavoriteSlice/FavoriteSlice";
 import { alreadyUser } from "./features/AuthSlice/AuthSlice";
 import ProductDetails from "./container/Pages/ProductDetails/ProductDetailsPage";
 import Authentication from "./container/Pages/Auth/Authentication";
+import { SkeletonTheme } from "react-loading-skeleton";
+import { useEffect } from "react";
 const favData = getFavoriteDataFromLocalStorage();
 const authData = getAuthenticationDataFromLocalStorage();
-
 if (favData) {
   store.dispatch(setInitialValue(favData));
 }
@@ -30,10 +31,12 @@ if (authData !== null) {
   store.dispatch(alreadyUser(authData));
 }
 function App() {
+
   return (
     <>
       <Provider store={store}>
         <ThemeProvider>
+    
           <ToastContainer
             closeOnClick
             position="top-left"
@@ -56,6 +59,7 @@ function App() {
             <Route path="/myFavorite" element={<Favorite />} />
             <Route path={`/products/:id`} element={<ProductDetails />} />
           </Routes>
+
         </ThemeProvider>
       </Provider>
     </>

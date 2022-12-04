@@ -1,4 +1,4 @@
-import { useState, CSSProperties } from "react";
+import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const override = {
@@ -8,8 +8,7 @@ const override = {
 };
 
 function Spinner({loading}) {
-//   let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#e11d48");
+
 
   return (
     <div className="sweet-loading">

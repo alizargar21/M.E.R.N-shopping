@@ -2,7 +2,7 @@ import { useEffect, useState, useRef, Suspense } from "react";
 import Carousel from "../UI/Carousel/Carousel";
 import { useNavigate , Link} from "react-router-dom";
 import Spinner from "../../common/Spinner/Spinner";
-import { useDispatch, useSelector } from "react-redux";
+
 
 
 const OfferBox = ({ products, loading }) => {

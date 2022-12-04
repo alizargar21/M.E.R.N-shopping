@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, A11y } from "swiper";
-import { useDispatch, useSelector } from "react-redux";
+import { Pagination, Autoplay } from "swiper";
+
 
 import "swiper/css";
 
