@@ -45,7 +45,7 @@ const Navigation = () => {
   };
   return (
     <nav className="flex justify-between items-center w-full h-[60px] ">
-      <ul className="flex justify-center items-center text-primary dark:text-primary-dark text-sm">
+      <ul className="flex justify-center items-center text-primary dark:text-primary-dark text-lg italic">
         <div className="md:hidden   ">
           <a href="/">
             <img

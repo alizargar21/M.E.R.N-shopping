@@ -5,6 +5,7 @@ import Spinner from "../../../common/Spinner/Spinner";
 import Layout from "../../Layout/Layout";
 import { useEffect } from "react";
 import { getAsyncProductById } from "../../../features/ProductsSlice/ProductsSlice";
+import SkeletonProductDetails from "../../../components/Skeleton Components/SkeletonProductDetails";
 import { useParams } from "react-router-dom";
 const SingleProduct = React.lazy(() =>
   import("../../../components/SingleProduct/SingleProduct")
@@ -18,8 +19,8 @@ const ProductDetails = () => {
   }, []);
   return (
     <Layout>
-      <Suspense fallback={<Spinner />}>
-        {!loading && product && <SingleProduct selectedProduct={product} />}
+      <Suspense fallback={<SkeletonProductDetails />}>
+        {loading ? <SkeletonProductDetails /> :!loading && product && <SingleProduct selectedProduct={product} loading={loading} />}
       </Suspense>
     </Layout>
   );
