@@ -42,7 +42,8 @@ const ProductsAndCategories = () => {
             </div>
           }
         >
-          {!loading && (
+
+          {loading ? <ListContainer loading={loading}/>  :!loading && (
             <ListContainer
             renderValue={
               filteredProducts.length === 0 ? products : filteredProducts

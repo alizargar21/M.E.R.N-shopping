@@ -10,7 +10,7 @@ import { BiLogOut, BiLogIn } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "../../hooks/useQuery";
 import PopOver from "../Popover/PopOver";
-import {useWindowDimensions} from "../../hooks/useWinowDimensions"
+import { useWindowDimensions } from "../../hooks/useWinowDimensions";
 export const navItems = [
   { to: "/", name: "Home" },
   { to: "/products", name: "Products" },
@@ -19,11 +19,11 @@ export const navItems = [
   { to: "", name: "" },
 ];
 const popupCartStyles =
-"absolute top-7 -right-20 bg-gray-300 dark:bg-containerBG-dark rounded-lg max-h-[300px] border-black  dark:border-white border";
+  "absolute top-7 -right-20 bg-gray-300 dark:bg-containerBG-dark rounded-lg max-h-[300px] border-black  dark:border-white border";
 const popupProfileStyles =
-"lg:w-[30%]  sm:w-[60%] md:w-[50%] xl:w-[25%] absolute top-12 2xl:right-28 lg:right-4 dark:bg-containerBG-dark rounded-lg p-4  bg-containerBG/90 sm:text-[12px] font-bold font-Roboto";
+  "lg:w-[40%]  sm:w-[68%] md:w-[50%] xl:w-[25%] absolute top-12 2xl:right-28 lg:right-4 dark:bg-containerBG-dark rounded-lg p-4  bg-containerBG/90 sm:text-[12px] font-bold font-Roboto";
 const Navigation = () => {
-  const screen = useWindowDimensions()
+  const screen = useWindowDimensions();
   const { isLogin, user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const query = useQuery();
@@ -154,13 +154,15 @@ const Navigation = () => {
       </ul>
       <div className=" w-[20%] ">
         <ul className=" w-auto  h-full flex justify-around items-center text-sm">
-          <NavLink
-            to={"/cart"}
-            className={({ isActive }) =>
-              isActive ? "text-btnPrimary dark:text-btnPrimary " : "text-primary dark:text-primary-dark"
-            }
-          >
-            <li className="relative">
+          <li className="relative">
+            <NavLink
+              to={"/cart"}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-btnPrimary dark:text-btnPrimary "
+                  : "text-primary dark:text-primary-dark"
+              }
+            >
               <PopOver
                 headerTitle={"Cart"}
                 title={
@@ -192,32 +194,31 @@ const Navigation = () => {
                       </div>
                     ) : (
                       <div className="center flex-col w-[150px]   dark:bg-gray-700  mt-1 py-2  cursor-default rounded-lg  ">
-                         < div className="center justify-around w-full pb-2">
-                            <p>Total Items </p> 
-                            <span className="w-6 h-6 bg-btn center rounded-lg bg-btnPrimary text-primary-dark">{cart.length}</span>
-                          </div>
+                        <div className="center justify-around w-full pb-2">
+                          <p>Total Items </p>
+                          <span className="w-6 h-6 bg-btn center rounded-lg bg-btnPrimary text-primary-dark">
+                            {cart.length}
+                          </span>
+                        </div>
                       </div>
                     )}
                   </div>
                 }
               />
-            </li>
-          </NavLink>
-          <NavLink to={!isLogin && "/authentication/login"}  >
-            <li>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={!isLogin && "/authentication/login"}>
               {isLogin ? (
                 <PopOver
                   headerTitle={"Profile Information"}
                   title={
-                    <BsPersonCircle className="text-[30px] dark:text-gray-200  text-gray-800  sm:text-[28px]  sm:ml-2"
-                    
-                    />
+                    <BsPersonCircle className="text-[30px] dark:text-gray-200  text-gray-800  sm:text-[28px]  sm:ml-2" />
                   }
                   stylesPopup={popupProfileStyles}
                   content={
-                    <div className="">
+                    <div>
                       <section className="w-[100%] h-full">
-            
                         <div className=" px-5 py-3 flex flex-col bg-gray-100 dark:bg-slate-600 justify-between items-center border rounded-lg  text-gray-800 dark:text-gray-300">
                           <div className="flex justify-between w-full">
                             <p>Username : </p>
@@ -244,26 +245,34 @@ const Navigation = () => {
                 />
               ) : (
                 <p className="hover:text-green-600 dark:hover:text-green-600 duration-300 dark:text-gray-200  text-gray-800 center ml-2">
-                  {screen.width > 767 ?       <>
-                    <BiLogIn className="text-[22px]" />
-                  <span className="center sm:text-[12px] truncate">
-                    Signup | Login
-                  </span>
-                  </>     :  <><BiLogIn className="text-[25px]"  /></>}
+                  {screen.width > 767 ? (
+                    <>
+                      <BiLogIn className="text-[22px]" />
+                      <span className="center sm:text-[12px] truncate">
+                        Signup | Login
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <BiLogIn className="text-[25px]" />
+                    </>
+                  )}
                 </p>
               )}
-            </li>
-          </NavLink>
+            </NavLink>
+          </li>
 
-       {screen.width > 767 &&    <li>
-            <button
-              type="button"
-              className=" text-[25px] dark:text-gray-200  text-gray-800  dark:hover:text-yellow-500 duration-300 hover:text-yellow-500  ml-2"
-              onClick={handleThemeSwitch}
-            >
-              {theme === "dark" || null ? <FiSun /> : <FiMoon />}
-            </button>
-          </li>}
+          {screen.width > 767 && (
+            <li>
+              <button
+                type="button"
+                className=" text-[25px] dark:text-gray-200  text-gray-800  dark:hover:text-yellow-500 duration-300 hover:text-yellow-500  ml-2"
+                onClick={handleThemeSwitch}
+              >
+                {theme === "dark" || null ? <FiSun /> : <FiMoon />}
+              </button>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

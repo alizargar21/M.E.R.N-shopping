@@ -21,7 +21,7 @@ const HomePage = () => {
       <Landing />
     
      <SpecialOffer loading={loading} data={products}/> 
-      <Background />
+
       {loading ? <Spinner /> : <OfferBox products={products} loading={loading}/>}
       <Possibilities />
     </Layout>

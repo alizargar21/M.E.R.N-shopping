@@ -6,14 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToFavoriteList } from "../../features/FavoriteSlice/FavoriteSlice";
 import { Suspense } from "react";
 
-import Spinner from "../../common/Spinner/Spinner";
-const Card = ({ data }) => {
+import SkeletonCard from "../Skeleton Components/SkeletonCard";
+const Card = ({ data , loading }) => {
   const { favoriteList } = useSelector((state) => state.favorite);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const screen = useWindowDimensions();
   useEffect(() => {}, []);
-  if (screen.width >= 479 && data !== null) {
+
+  if (!loading && screen.width >= 479 && data !== null) {
     return (
       <>
         {data.map((item) => (
