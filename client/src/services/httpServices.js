@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL || "http://localhost:5000/api/"
+axios.defaults.baseURL =  process.env.REACT_APP_BASE_URL || "http://localhost:5000/api/"
 const http = {
   get: axios.get,
   put: axios.put,
@@ -8,3 +8,4 @@ const http = {
 };
 
 export default http;
+

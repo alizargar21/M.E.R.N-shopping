@@ -30,28 +30,7 @@ const Input = ({ label, formik, name, type = "text" }) => {
       </label>
 
     </div>
-    // <div className="flex flex-col w-full">
-    //   <label htmlFor={name} className="my-2 text-sm">
-    //     {label} <span className="text-red-500">*</span>
-    //   </label>
-    //   <input
-    //     className={
-    //       formik.errors[name]
-    //         ? "w-full py-1 my-1 px-5 rounded-md bg-gray-100 dark:bg-gray-600 text-sm focus:px-3 text-gray-800 focus:bg-white dark:focus:bg-gray-600 autofill:bg-red-500 focus:text-gray-800  outline-blue-500  ring-[2px]"
-    //         : "outline-blue-500  ring-[2px] text-md  px-3 py-1 rounded-md  text-gray-800 text-[14px]"
-    //     }
-    //     type={type}
-    //     placeholder={label}
-    //     id={name}
-    //     name={name}
-    //     {...formik.getFieldProps(name)}
-    //   />
-    //   {formik.errors[name] && formik.touched[name] && (
-    //     <div className="my-0 mx-auto text-sm text-red-500 text-center italic font-semibold">
-    //       {formik.errors[name]}
-    //     </div>
-    //   )}
-    // </div>
+
   );
 };
 

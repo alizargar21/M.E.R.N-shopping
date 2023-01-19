@@ -20,8 +20,7 @@ import { setInitialValue } from "./features/FavoriteSlice/FavoriteSlice";
 import { alreadyUser } from "./features/AuthSlice/AuthSlice";
 import ProductDetails from "./container/Pages/ProductDetails/ProductDetailsPage";
 import Authentication from "./container/Pages/Auth/Authentication";
-import { SkeletonTheme } from "react-loading-skeleton";
-import { useEffect } from "react";
+
 const favData = getFavoriteDataFromLocalStorage();
 const authData = getAuthenticationDataFromLocalStorage();
 if (favData) {
